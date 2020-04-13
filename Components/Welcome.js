@@ -5,12 +5,30 @@ import { SHOP } from "../Navigation/screenNames";
 import bread from "../assets/bread.png";
 
 const Welcome = ({ navigation }) => (
-  <ImageBackground source={bread} style={{ width: "100%", height: "100%" }}>
-    <View button onPress={() => navigation.navigate(SHOP)}>
+  <ImageBackground
+    source={bread}
+    style={{
+      width: "100%",
+      height: "100%",
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+    }}
+  >
+    <View>
       <Text
-        style={{ color: "white", fontSize: 18, fontWeight: "bold", opacity: 1 }}
+        button
+        onPress={() => navigation.navigate(SHOP)}
+        style={{
+          color: "white",
+          fontSize: 18,
+          fontWeight: "bold",
+          opacity: 1,
+          textAlign: "center",
+          fontSize: 50,
+        }}
       >
-        Welcome to Flour Power
+        Welcome to Wake & Bake
       </Text>
     </View>
   </ImageBackground>
