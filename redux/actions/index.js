@@ -1,5 +1,6 @@
 // Bekeryshops
 export * from "./categories";
+export * from "./products";
 
 // Cart
 export * from "./cart";

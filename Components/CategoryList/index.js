@@ -11,7 +11,7 @@ const CategoryList = ({ categories, loading, navigation }) => {
   const shopList = categories.map((category) => (
     <CategoryItem
       category={category}
-      key={category.name}
+      key={category.title}
       navigation={navigation}
     />
   ));

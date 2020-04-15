@@ -11,58 +11,41 @@ import {
   Picker,
   Content,
 } from "native-base";
+import { ImageBackground } from "react-native";
 import { connect } from "react-redux";
 
-import { addItemToCart } from "../../redux/actions";
+import { addItemToCart, getProducts } from "../../redux/actions";
+import Product from "./Product";
 
 // Style
 import styles from "./styles";
 
-class CategoryDetail extends Component {
+class CoffeeDetail extends Component {
   state = {
-    category: "Sandwich",
-    option: "Small",
+    drink: "",
+    option: "",
   };
+  componentDidMount() {
+    this.props.getProducts(this.props.route.params.category.id);
+  }
+  componentDidUpdate(prevProps) {
+    let categoryID = this.props.route.params.category.id;
 
+    if (categoryID !== prevProps.route.params.category.id) {
+      this.props.getProducts(this.props.route.params.category.id);
+    }
+  }
   render() {
     const { category } = this.props.route.params;
+    const { products } = this.props;
+    const product = products.map((product) => (
+      <Product key={product.name} product={product} />
+    ));
+
     return (
       <Content>
         <List>
-          <ListItem style={styles.top}>
-            <Body />
-            <Right>
-              <Thumbnail bordered source={{ uri: category.img }} />
-            </Right>
-          </ListItem>
-          <ListItem style={{ borderBottomWidth: 0 }}>
-            <Left>
-              <Picker
-                note
-                mode="dropdown"
-                style={{ width: 150 }}
-                selectedValue={this.state.category}
-                onValueChange={(category) => this.setState({ category })}
-              >
-                <Picker.Item label="Cappuccino" value="Cappuccino" />
-                <Picker.Item label="Latte" value="Latte" />
-                <Picker.Item label="Espresso" value="Espresso" />
-              </Picker>
-            </Left>
-            <Body>
-              <Picker
-                note
-                mode="dropdown"
-                style={{ width: 150 }}
-                selectedValue={this.state.option}
-                onValueChange={(option) => this.setState({ option })}
-              >
-                <Picker.Item label="Small" value="Small" />
-                <Picker.Item label="Medium" value="Medium" />
-                <Picker.Item label="Large" value="Large" />
-              </Picker>
-            </Body>
-          </ListItem>
+          <List>{product}</List>
           <Button
             full
             danger
@@ -75,9 +58,12 @@ class CategoryDetail extends Component {
     );
   }
 }
-
+const mapStateToProps = ({ products }) => ({
+  products,
+});
 const mapDispatchToProps = (dispatch) => ({
   addItemToCart: (item) => dispatch(addItemToCart(item)),
+  getProducts: (id) => dispatch(getProducts(id)),
 });
 
-export default connect(null, mapDispatchToProps)(CategoryDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(CoffeeDetail);

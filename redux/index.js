@@ -1,7 +1,12 @@
 import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 
-import { getCategories, checkForToken, checkForOrderHistory } from "./actions";
+import {
+  getCategories,
+  checkForToken,
+  checkForOrderHistory,
+  getProducts,
+} from "./actions";
 
 import rootReducer from "./reducers";
 

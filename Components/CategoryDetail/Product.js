@@ -3,32 +3,27 @@ import { ImageBackground, View } from "react-native";
 import { ListItem, Card, CardItem, Thumbnail, Text, Left } from "native-base";
 
 // Screens
-import { CATEGORY } from "../../Navigation/screenNames";
-
 
 // Style
 import styles from "./styles";
 
-
-class CategoryItem extends Component {
+class Product extends Component {
   render() {
-    const { category, navigation } = this.props;
+    const { product } = this.props;
 
     return (
       <ImageBackground
-        source={{ uri: category.image }}
+        source={{ uri: product.image }}
         style={styles.background}
       >
         <View style={styles.overlay} />
-        <ListItem
-          button
-          style={styles.listitem}
-          onPress={() => navigation.navigate(CATEGORY, { category })}
-        >
+        <ListItem style={styles.listitem}>
           <Card style={styles.transparent}>
             <CardItem style={styles.transparent}>
               <Left>
-                <Text style={styles.text}>{category.title}</Text>
+                <Text style={styles.text}>{product.name }</Text>
+                <Text style={styles.text}>{product.description }</Text>
+                <Text style={styles.text}>{product.price + "\n"}</Text>
               </Left>
             </CardItem>
           </Card>
@@ -38,4 +33,4 @@ class CategoryItem extends Component {
   }
 }
 
-export default CategoryItem;
+export default Product;

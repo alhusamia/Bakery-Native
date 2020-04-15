@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <NavigationContainer>
-          <RootNavigator  />
+          <RootNavigator />
         </NavigationContainer>
       </Provider>
     );

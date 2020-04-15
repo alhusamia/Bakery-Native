@@ -2,35 +2,56 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   text: {
-    color: "black",
-    fontSize: 15,
-    marginLeft: 16,
-
-    justifyContent: "center",
-    alignItems: "center"
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+    opacity: 1,
+    textAlign: "center",
+    flexWrap: "wrap",
+    flex:1
+   
   },
   divider: {
     borderBottomColor: "black",
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
   },
-  top: {
-    marginLeft: 0,
-    backgroundColor: "#ffffff"
-  },
-  middleText: {
-    color: "white",
-    fontWeight: "bold",
-    fontSize: 17,
-    alignSelf: "center"
-  },
-  addIcon: {
-    fontSize: 40,
-    fontWeight: "bold",
-    color: "white"
-  },
-  item: {
-    color: "white"
-  }
-});
+  overlay: {
+    flex: 1,
+    position: "absolute",
+    left: 0,
+    right: 0,
 
+    opacity: 0.5,
+    backgroundColor: "black",
+    height: "100%",
+    width: "100%",
+    
+  },
+  listitem: {
+    backgroundColor: "transparent",
+    borderTopWidth: 0,
+    borderRightWidth: 0,
+    borderLeftWidth: 0,
+    borderBottomWidth: 0,
+    height: 180,
+    flexDirection: "row",
+   
+  },
+  transparent: {
+    backgroundColor: "transparent",
+    borderTopWidth: 0,
+    borderRightWidth: 0,
+    borderLeftWidth: 0,
+    borderBottomWidth: 0,
+    flexDirection: "row",
+  },
+  thumbnail: {
+    backgroundColor: "white",
+    opacity: 1,
+  },
+  background: {
+    width: null,
+    flex: 1,
+  },
+});
 export default styles;

@@ -1,24 +1,23 @@
 import React from "react";
-import { Icon } from "native-base";
+import { Icon, Image } from "native-base";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Components
 import CartIcon from "./CartIcon";
+import logo from "../assets/Logo.png";
 
 // Screens
-import { SHOP, CART, USER, WELCOME } from "./screenNames";
+import { SHOP, CART, USER } from "./screenNames";
 import UserStack from "./StackNavigators/UserStack";
 import CartStack from "./StackNavigators/CartStack";
 import ShopStack from "./StackNavigators/ShopStack";
-import Welcome from "../Components/Welcome";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
 function RootTabNavigator() {
   return (
     <Navigator
-      // style={{uri:back}}
-      initialRouteName={WELCOME}
+      initialRouteName={SHOP}
       tabBarOptions={{
         showLabel: false,
         activeTintColor: "#FFD700",
@@ -52,8 +51,18 @@ function RootTabNavigator() {
         },
       })}
     >
-      <Screen name={USER} component={UserStack} />
-      <Screen name={WELCOME} component={Welcome} />
+      <Screen
+        name={USER}
+        component={UserStack}
+        options={() => {
+          return {
+            title: "Profile",
+            headerRight: () => (
+              <Image source={logo} style={{ height: 30, width: 15 }} />
+            ),
+          };
+        }}
+      />
       <Screen name={SHOP} component={ShopStack} />
       <Screen name={CART} component={CartStack} />
     </Navigator>

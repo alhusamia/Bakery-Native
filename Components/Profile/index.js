@@ -19,13 +19,13 @@ const OrderItem = ({ order }) => {
 };
 
 const Profile = ({ username, orders }) => {
-  const orderList = orders.map((order) => (
-    <OrderItem key={order.date.toString()} order={order} />
-  ));
+  // const orderList = orders.map((order) => (
+  //   <OrderItem key={order.date.toString()} order={order} />
+  // ));
   return (
     <View>
       <Text> {username}'s Order History</Text>
-      <List>{orderList}</List>
+      {/* <List>{orderList}</List> */}
       <LogoutButton />
     </View>
   );

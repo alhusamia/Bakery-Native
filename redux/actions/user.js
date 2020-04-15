@@ -12,6 +12,7 @@ const setCurrentUser = (token) => (dispatch) => {
     dispatch(setOrders([]));
     AsyncStorage.removeItem("history");
   }
+
   dispatch({
     type: SET_CURRENT_USER,
     payload: token ? decode(token) : null,
@@ -39,9 +40,9 @@ export const checkForToken = () => async (dispatch) => {
 export const login = (userData, redirect) => async (dispatch) => {
   try {
     const res = await instance.post("login/", userData);
-    const { token } = res.data;
+    const { access } = res.data;
 
-    dispatch(setCurrentUser(token));
+    dispatch(setCurrentUser(access));
     redirect();
   } catch (error) {
     dispatch(setErrors(error.response.data));
