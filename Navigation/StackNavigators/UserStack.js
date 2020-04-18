@@ -15,7 +15,18 @@ const { Navigator, Screen } = createStackNavigator();
 
 function UserStack({ user }) {
   return (
-    <Navigator initialRouteName={PROFILE} screenOptions={screenOptions}>
+    <Navigator
+      initialRouteName={PROFILE}
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "black",
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+        headerTintColor: "white",
+      }}
+    >
       {!user ? (
         <>
           <Screen

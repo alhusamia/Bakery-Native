@@ -3,9 +3,10 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import CategoryList from "../../Components/CategoryList";
 import CategoryDetail from "../../Components/CategoryDetail";
+import Detail from "../../Components/ProductDetail/ProductDetail";
 
 // Screens
-import { CATEGORIES, CATEGORY } from "../screenNames";
+import { CATEGORIES, CATEGORY, PRODUCT } from "../screenNames";
 
 // Config
 import screenOptions from "../screenOptions";
@@ -19,7 +20,12 @@ export default function ShopStack() {
       <Screen
         name={CATEGORY}
         component={CategoryDetail}
-        options={({ route }) => ({ title: route.params.category.name })}
+        options={({ route }) => ({ title: route.params.category.title })}
+      />
+      <Screen
+        name={PRODUCT}
+        component={Detail}
+        options={({ route }) => ({ title: route.params.product.name })}
       />
     </Navigator>
   );

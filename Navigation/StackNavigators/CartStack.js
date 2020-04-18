@@ -12,7 +12,18 @@ const { Navigator, Screen } = createStackNavigator();
 
 export default function CartStack() {
   return (
-    <Navigator initialRouteName={CART} screenOptions={screenOptions}>
+    <Navigator
+      initialRouteName={CART}
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "black",
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+        headerTintColor: "white",
+      }}
+    >
       <Screen name={CART} component={BekeryCart} />
     </Navigator>
   );

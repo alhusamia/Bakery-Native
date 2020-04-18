@@ -10,10 +10,7 @@ import styles from "./styles";
 const CartItem = ({ item, removeItemFromCart }) => (
   <ListItem style={styles.listStyle}>
     <Left>
-      <Text style={styles.drink}>{item.drink}</Text>
-      <Text note style={styles.option}>
-        {item.option}
-      </Text>
+      <Text style={styles.drink}>{item.type}</Text>    
     </Left>
     <Body>
       <Text style={styles.quantity}>{item.quantity}</Text>

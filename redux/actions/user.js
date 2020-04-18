@@ -52,7 +52,7 @@ export const login = (userData, redirect) => async (dispatch) => {
 export const signup = (userData, redirect) => async (dispatch) => {
   try {
     const res = await instance.post("register/", userData);
-    const { token } = res.data;
+    const { access } = res.data;
 
     dispatch(login(userData));
     redirect();

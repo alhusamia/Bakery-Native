@@ -14,6 +14,7 @@ const BekeryCart = ({ cart, user, checkoutCart, navigation }) => {
   ));
 
   return (
+    
     <List>
       {cartItems.length ? (
         <>

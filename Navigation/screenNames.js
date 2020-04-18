@@ -14,4 +14,4 @@ export const SHOP = "Shop";
 export const CATEGORIES = "Categories";
 export const CATEGORY = "Category";
 export const CART = "Cart";
-export const WELCOME = "WELCOME";
+export const PRODUCT = "Product";

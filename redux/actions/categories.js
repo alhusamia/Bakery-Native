@@ -4,7 +4,7 @@ import { SET_CATEGORIES } from "./types";
 
 export const getCategories = () => async (dispatch) => {
   try {
-    const res = await instance.get("");
+    const res = await instance.get("categories/");
     const categories = res.data;
     dispatch({
       type: SET_CATEGORIES,

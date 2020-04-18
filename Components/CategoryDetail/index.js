@@ -1,69 +1,40 @@
 import React, { Component } from "react";
-import {
-  Thumbnail,
-  Text,
-  Button,
-  Left,
-  Body,
-  Right,
-  List,
-  ListItem,
-  Picker,
-  Content,
-} from "native-base";
-import { ImageBackground } from "react-native";
+import { List, Content } from "native-base";
+
 import { connect } from "react-redux";
 
-import { addItemToCart, getProducts } from "../../redux/actions";
-import Product from "./Product";
-
-// Style
-import styles from "./styles";
+import { getAllProducts } from "../../redux/actions";
+import Product from "../Product/Product";
 
 class CoffeeDetail extends Component {
-  state = {
-    drink: "",
-    option: "",
-  };
   componentDidMount() {
-    this.props.getProducts(this.props.route.params.category.id);
-  }
-  componentDidUpdate(prevProps) {
-    let categoryID = this.props.route.params.category.id;
-
-    if (categoryID !== prevProps.route.params.category.id) {
-      this.props.getProducts(this.props.route.params.category.id);
-    }
+    this.props.getAllProducts();
   }
   render() {
     const { category } = this.props.route.params;
-    const { products } = this.props;
-    const product = products.map((product) => (
-      <Product key={product.name} product={product} />
+    const { navigation, allproducts } = this.props;
+    const listProducts = allproducts.filter((product) => {
+      if (category.id == product.category) return product;
+    });
+
+    const product = listProducts.map((product) => (
+      <Product
+        key={product.name + product.id}
+        product={product}
+        navigation={navigation}
+      />
     ));
 
     return (
       <Content>
-        <List>
-          <List>{product}</List>
-          <Button
-            full
-            danger
-            onPress={() => this.props.addItemToCart(this.state)}
-          >
-            <Text>Add</Text>
-          </Button>
-        </List>
+        <List>{product}</List>
       </Content>
     );
   }
 }
-const mapStateToProps = ({ products }) => ({
-  products,
+const mapStateToProps = ({ allproducts }) => ({
+  allproducts,
 });
-const mapDispatchToProps = (dispatch) => ({
-  addItemToCart: (item) => dispatch(addItemToCart(item)),
-  getProducts: (id) => dispatch(getProducts(id)),
-});
+const mapDispatchToProps = { getAllProducts };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoffeeDetail);

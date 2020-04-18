@@ -58,7 +58,7 @@ function RootTabNavigator() {
           return {
             title: "Profile",
             headerRight: () => (
-              <Image source={logo} style={{ height: 30, width: 15 }} />
+              <Image source={logo} style={{ height: 30, width: 15 ,flex: 1}} />
             ),
           };
         }}

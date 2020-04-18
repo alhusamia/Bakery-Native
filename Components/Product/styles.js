@@ -3,13 +3,14 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
   text: {
     color: "white",
-    fontSize: 18,
+    fontSize: 35,
     fontWeight: "bold",
     opacity: 1,
     textAlign: "center",
-    flexWrap: "wrap",
-    flex:1
-   
+    // height:33,
+    textShadowColor: "rgb(220,220,220)",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
   },
   divider: {
     borderBottomColor: "black",
@@ -25,7 +26,6 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     height: "100%",
     width: "100%",
-    
   },
   listitem: {
     backgroundColor: "transparent",
@@ -33,9 +33,8 @@ const styles = StyleSheet.create({
     borderRightWidth: 0,
     borderLeftWidth: 0,
     borderBottomWidth: 0,
-    height: 180,
+    height: 200,
     flexDirection: "row",
-   
   },
   transparent: {
     backgroundColor: "transparent",
