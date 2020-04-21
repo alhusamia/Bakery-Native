@@ -4,10 +4,15 @@ export default (items = [], { type, payload }) => {
   switch (type) {
     case ADD_ITEM:
       const newItem = payload;
-      const foundItem = items.find((item) => item.type === newItem.type);
+      const foundItem = items.find((item) => item.name === newItem.name);
       if (foundItem) {
         return items.map((item) =>
-          item === foundItem ? { ...item, quantity: item.quantity + 1 } : item
+          item === foundItem
+            ? {
+                ...item,
+                quantity: item.quantity + 1,
+              }
+            : item
         );
       } else return [...items, { ...newItem, quantity: 1 }];
 

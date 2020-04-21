@@ -11,6 +11,6 @@ export const getProducts = (categoryID) => async (dispatch) => {
       payload: products,
     });
   } catch (err) {
-    console.error("Error while fetching shops", err);
+    console.error("Error while fetching Products", err);
   }
 };

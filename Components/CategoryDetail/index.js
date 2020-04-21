@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { getAllProducts } from "../../redux/actions";
 import Product from "../Product/Product";
 
-class CoffeeDetail extends Component {
+class CategoryDetail extends Component {
   componentDidMount() {
     this.props.getAllProducts();
   }
@@ -37,4 +37,4 @@ const mapStateToProps = ({ allproducts }) => ({
 });
 const mapDispatchToProps = { getAllProducts };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CoffeeDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryDetail);

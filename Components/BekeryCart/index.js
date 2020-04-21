@@ -10,11 +10,10 @@ import { USER, LOGIN } from "../../Navigation/screenNames";
 
 const BekeryCart = ({ cart, user, checkoutCart, navigation }) => {
   const cartItems = cart.map((item) => (
-    <CartItem item={item} key={item.drink + item.option} />
+    <CartItem item={item} key={item.type + item.option} />
   ));
 
   return (
-    
     <List>
       {cartItems.length ? (
         <>
@@ -24,7 +23,7 @@ const BekeryCart = ({ cart, user, checkoutCart, navigation }) => {
             danger
             onPress={
               user
-                ? () => checkoutCart({ date: new Date(), items: cart })
+                ? () => checkoutCart({ items: cart })
                 : () => navigation.navigate(USER, { screen: LOGIN })
             }
           >
@@ -32,7 +31,22 @@ const BekeryCart = ({ cart, user, checkoutCart, navigation }) => {
           </Button>
         </>
       ) : (
-        <Text style={{ textAlign: "center" }}>Buy something</Text>
+        <Text
+          style={{
+            color: "#DAA520",
+            fontSize: 30,
+            marginTop: 200,
+            fontWeight: "bold",
+            opacity: 1,
+            textAlign: "center",
+
+            textShadowColor: "#FFD700",
+            textShadowOffset: { width: 0, height: 0 },
+            textShadowRadius: 8,
+          }}
+        >
+          Happy to See you Again
+        </Text>
       )}
     </List>
   );

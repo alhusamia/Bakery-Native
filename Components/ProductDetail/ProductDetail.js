@@ -38,7 +38,11 @@ class ProductDetail extends React.Component {
             <Button
               dark
               style={styles.ItemContainer}
-              onPress={() => this.props.addItemToCart({ type: product.name })}
+              onPress={() =>
+                this.props.addItemToCart({
+                  name: product.name,
+                })
+              }
             >
               <Text style={{ color: "white" }}>Add</Text>
             </Button>

@@ -8,9 +8,6 @@ import Login from "../../Components/Authentication/Login";
 import Signup from "../../Components/Authentication/Signup";
 import Profile from "../../Components/Profile";
 
-// Config
-import screenOptions from "../screenOptions";
-
 const { Navigator, Screen } = createStackNavigator();
 
 function UserStack({ user }) {

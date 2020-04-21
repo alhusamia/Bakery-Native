@@ -7,10 +7,27 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     opacity: 1,
     textAlign: "center",
-    // height:33,
+
     textShadowColor: "rgb(220,220,220)",
     textShadowOffset: { width: 0, height: 0 },
     textShadowRadius: 8,
+  },
+  text1: {
+    color: "white",
+    fontWeight: "bold",
+    opacity: 1,
+    textAlign: "center",
+
+    textShadowColor: "rgb(220,220,220)",
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 8,
+  },
+  ItemContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    textAlign: "center",
+    borderWidth: 0.5,
+    borderRadius: 10,
   },
   divider: {
     borderBottomColor: "black",

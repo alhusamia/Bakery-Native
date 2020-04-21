@@ -15,3 +15,7 @@ export const CATEGORIES = "Categories";
 export const CATEGORY = "Category";
 export const CART = "Cart";
 export const PRODUCT = "Product";
+
+//Search
+export const SEARCH = "Search";
+export const SEARCHLIST = "SearchList";
