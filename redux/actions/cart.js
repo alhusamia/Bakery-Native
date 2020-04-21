@@ -18,7 +18,7 @@ export const removeItemFromCart = (item) => ({
 export const checkoutCart = (order) => {
   return async (dispatch) => {
     try {
-      await instance.post("order/create/", order);
+      // await instance.post("order/create/", order);
       dispatch({
         type: CHECKOUT,
       });

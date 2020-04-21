@@ -14,7 +14,22 @@ class Profile extends Component {
 
     return (
       <View>
-        <Text> Before you go.... Promise to come back again ....</Text>
+        <Text
+          style={{
+            color: "black",
+            fontSize: 30,           
+            fontWeight: "bold",
+            opacity: 1,
+            textAlign: "center",
+
+            textShadowColor: "#FFD700",
+            textShadowOffset: { width: 0, height: 0 },
+            textShadowRadius: 8,
+          }}
+        >
+          {" "}
+          Before you go.... Promise to come back again ....
+        </Text>
 
         <LogoutButton />
       </View>
